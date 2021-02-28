@@ -1,0 +1,33 @@
+.SignInDeatailsContainer {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+    margin-left: 25%;
+}
+.SignInDeatailsContainer p{
+    margin-left: 15%;
+    margin-top: 5%;
+    font-size: 250%;
+    font-weight: bold;
+}
+.colForm {
+    display: flex;
+    flex-direction: column;
+}
+.rowForm {
+    display: flex;
+    flex-direction: row;
+    margin: 3%;
+}
+.SignInDeatailsContainer button {
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 5%;
+}
+.SignInDeatailsContainer button p{
+    margin: 1%;
+    color: white;
+    font-family: 'Lato';
+    font-size: 20px;
+}

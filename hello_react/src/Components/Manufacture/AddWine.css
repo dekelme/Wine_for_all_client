@@ -1,0 +1,14 @@
+.addWineForm {
+    margin:3%;
+}
+.rowOptions{
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+}
+.inputRow {
+    margin: 2%;
+}
+.addButWine{
+    width:100%;
+}

@@ -1,0 +1,72 @@
+.ownerMainPage {
+    background-color: #F8F8F8;
+}
+.containerOwner {
+    display: flex;
+    flex-direction: row;
+}
+.personalDet {
+    background-color: #FFFFFF;
+    width: 30%;
+    height: 80%;
+    margin-left: 10%;
+    margin-top: 3%;  
+    margin-bottom: 100px;
+}
+.progressOwner {
+    width: 100%;
+    background-color: #FFFFFF;
+    margin-top: 3%;
+}
+.containerOptions {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    width: 50%;
+}
+.progressOwner h2{
+    font-family: 'Lato';
+
+}
+.ownerContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+.containerOptions .addBut {
+    margin-left: 90%;
+}
+.prsonalDetOwner{
+    background-color:#F7F9F9;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 30%;
+    margin: 5%;
+    border-radius: 10%;
+
+}
+.currentContainerRow{
+    display: flex;
+    flex-direction: row;
+}
+p,h3 {
+    font-family: 'Lato';
+}
+.prsonalDetOwner h3{
+    margin: 5%;
+}
+h1{
+    font-family: 'Lato';
+}
+p{
+    font-size: 100%;
+}
+.myAssetsTab{
+    margin-left: 3%;
+}
+.myAssetsTab h2{
+    margin:5%;
+    font-size: 200%;
+}
+

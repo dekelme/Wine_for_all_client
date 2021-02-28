@@ -1,0 +1,36 @@
+.rowImg {
+    display: flex;
+    flex-direction: row;
+}
+.rowImg img{
+    width:30%;
+    height: 30%;
+    margin: 2%;
+}
+.rowImg span{
+    margin: 5%;
+}
+.rowImg div {
+    margin: 5%;
+}
+.clientContainer {
+    display: flex;
+    flex-direction: column;
+}
+.firstDeatails {
+    display: flex;
+    flex-direction: row;
+}
+.firstDeatails div {
+    margin-left: 5%;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-top: 3%;
+}
+.coulmn {
+    display: flex;
+    flex-direction: column;
+}
