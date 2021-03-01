@@ -11,21 +11,22 @@ export default function ManufacturePage(props) {
     const [cookies] = useCookies(['user']);
 
     useEffect(() => {
-      fetch(`http://localhost:3000/api/users/2`, { withCredentials: true, credentials: 'include' })
+      fetch(`https://wine-for-all.herokuapp.com/api/users/3`, { withCredentials: true, credentials: 'include' })
         .then(response => response.json())
         .then(result =>  {
             setUser(result)
         })    
     }, [])
     useEffect(() => {
-      fetch(`https://localhost:3000/api/wines?manufactureId=2`, { withCredentials: true, credentials: 'include' })
+      fetch(`https://wine-for-all.herokuapp.com/api/wines/?manufactureID=3`, { withCredentials: true, credentials: 'include' })
         .then(response => response.json())
         .then(result =>  {
+            console.log(result)
             setWines(result)
         })     
     }, [])
     useEffect(() => {
-      fetch(`https://localhost:3000/api/Shipping?manufactureId=2`, { withCredentials: true, credentials: 'include' })
+      fetch(`https://wine-for-all.herokuapp.com/api/shippings/?manufactureID=3`, { withCredentials: true, credentials: 'include' })
         .then(response => response.json())
         .then(result =>  {
             setShipping(result)

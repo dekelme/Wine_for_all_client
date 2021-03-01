@@ -10,7 +10,7 @@ export default function NavBar(props) {
     let history = useHistory();
 
     const logout = () => {
-        fetch(`https://localhost:3000/api/auth/logout`, { withCredentials: true, credentials: 'include' })
+        fetch(`https://wine-for-all.herokuapp.com/api/auth/logout`, { withCredentials: true, credentials: 'include' })
         .then(result => {
             setCookie('user', '')
             history.push('/')

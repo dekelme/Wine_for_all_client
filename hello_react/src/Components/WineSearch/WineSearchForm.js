@@ -23,7 +23,7 @@ export default function AssetSearchForm(props) {
     // const [openEdit, setOpenEdit] = useState(false);
 
     const onSubmit = () => {
-        fetch(`http://localhost:3000/api/wines?wineName=${wineName}&year=${year}&kind=${kind}&color=${color}&winePrice=${winePrice}&foodPairing=${foodPairing}&manufacture=${manufacture}`)
+        fetch(`https://wine-for-all.herokuapp.com/api/wines?wineName=${wineName}&year=${year}&kind=${kind}&color=${color}&winePrice=${winePrice}&foodPairing=${foodPairing}&manufacture=${manufacture}`)
             .then(response => response.json())
             .then(result => {
                 setWineList(result)

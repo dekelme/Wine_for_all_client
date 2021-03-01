@@ -10,21 +10,21 @@ export default function RenterPage(props) {
   const [cookies] = useCookies(['user']);
 
   useEffect(() => {
-    fetch(`https://localhost:3000/api/users/1`, { withCredentials: true, credentials: 'include' })
+    fetch(`https://wine-for-all.herokuapp.com/api/users/1`, { withCredentials: true, credentials: 'include' })
       .then(response => response.json())
       .then(result =>  {
           setUser(result)
       })    
   }, [])
   useEffect(() => {
-    fetch(`https://localhost:3000/api/wines?clientID=1`, { withCredentials: true, credentials: 'include' })
+    fetch(`https://wine-for-all.herokuapp.com/api/wines?clientID=1`, { withCredentials: true, credentials: 'include' })
       .then(response => response.json())
       .then(result => {
         setWantedWine(result)
     })
   }, [])
   useEffect(() => {
-    fetch(`https://localhost:3000/api/shippings?clientID=1`, { withCredentials: true, credentials: 'include' })
+    fetch(`https://wine-for-all.herokuapp.com/api/shippings?clientID=1`, { withCredentials: true, credentials: 'include' })
       .then(response => response.json())
       .then(result =>  {
         setClientShiiping(result)

@@ -27,7 +27,7 @@ export default function AddWine(props) {
 
 
     useEffect(() => {
-        fetch(`https://localhost:3000/api/wines/${props.idWine}`)
+        fetch(`https://wine-for-all.herokuapp.com/api/wines/${props.idWine}`)
             .then(response => response.json())
             .then(result => {
                 setWine(result)
@@ -49,7 +49,7 @@ export default function AddWine(props) {
     const editWine = () => {
         if (PriceValidation()) {
             const body = { wineName: wineName, year: year, kind: kind, color: color, winePrice: winePrice, foodPairing: foodPairing, description: description, manufacture: manufacture, winePic: winePic };
-            fetch(`https://localhost:3000/api/wines/${wine.id}`, {
+            fetch(`https://wine-for-all.herokuapp.com/api/wines/${wine.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),

@@ -25,7 +25,7 @@ export default function Login (props) {
 
   const googleSuccess = async (response) => {
     const body = {token: response.tokenId}
-    fetch(`https://localhost:3000/api/auth/login`, {
+    fetch(`https://wine-for-all.herokuapp.com/api/auth/login`, {
       method: 'POST',
       credentials: 'include',
       headers: {'Content-Type': 'application/json'},

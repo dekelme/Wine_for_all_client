@@ -10,7 +10,7 @@ export default function ClienSearch(props) {
 	const [user,setUser] = useState("")
 	
 	useEffect(() => {
-        fetch(`https://localhost:3000/api/users/${1}`, { withCredentials: true, credentials: 'include' })
+        fetch(`https://wine-for-all.herokuapp.com/api/users/${1}`, { withCredentials: true, credentials: 'include' })
           .then(response => response.json())
           .then(result =>  {
             setUser(result)

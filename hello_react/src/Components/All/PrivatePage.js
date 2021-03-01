@@ -66,7 +66,7 @@ export default function PrivatePage(props) {
   };
   const addShipping = () => {
     const body = { orderPrice: orderPrice, orderDate: orderDate, shippingAddress:shippingAddress, shippingPrice:shippingPrice, manufctureID:manufctureID, clientID:clientID  };
-    fetch(`https://localhost:3000/api/shippings`, {
+    fetch(`https://wine-for-all.herokuapp.com/api/shippings`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -86,7 +86,7 @@ export default function PrivatePage(props) {
   }
   const giveUpOnWine = () => {
     const body = { clientID: -1 }
-    fetch(`https://localhost:3000/api/wines/${props.wantedWine.id}`, { //fix
+    fetch(`https://wine-for-all.herokuapp.com/api/wines/${props.wantedWine.id}`, { //fix
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -122,7 +122,7 @@ export default function PrivatePage(props) {
     }
   }
   const wantedWine = () => {
-    if (props.wantedWine == null) {
+    if (props.wines == null) {
       return (
         <Stepper active orientation="vertical">
           <Step >
@@ -141,8 +141,8 @@ export default function PrivatePage(props) {
             <StepLabel style={{ fontFamily: 'Lato' }}>My Favorite</StepLabel>
             <StepContent>
               <Button variant="contained" color="primary" size="small" onClick={() => setOpenWine(true)}>Wine details</Button>
-              <PopUp onSubmit={() => setOpenWine(false)} wantAssetBtn={false} title={props.wantedWine.name} open={openWine} closePopup={() => setOpenWine(false)} sendBtn={false} showBt={true}> 
-                <WineDeatails item={props.wantedWine} />
+              <PopUp onSubmit={() => setOpenWine(false)} wantWineBtn={false} title={props.wines.wineName} open={openWine} closePopup={() => setOpenWine(false)} sendBtn={false} showBt={true}> 
+                <WineDeatails item={props.wines} />
               </PopUp>
             </StepContent>
           </Step>

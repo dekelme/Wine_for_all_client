@@ -6,14 +6,14 @@ export default function WineDelete(props) {
     const [wine, setWine] = useState("");
 
 	useEffect(() => {
-		fetch(`https://localhost:3000/api/wines/${props.idWine}`)
+		fetch(`https://wine-for-all.herokuapp.com/api/wines/${props.idWine}`)
 		.then(response => response.json())
 		.then(result =>  {
 			setWine(result)
 		})  
 	},[props.idWine])
     const deleteWine = () => {
-		fetch(`https://localhost:3000/api/wine/${wine.id}`, {
+		fetch(`https://wine-for-all.herokuapp.com/api/wine/${wine.id}`, {
 		method: 'DELETE',
 		})
 		.then(response => response.json())

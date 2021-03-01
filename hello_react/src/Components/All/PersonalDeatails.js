@@ -13,7 +13,7 @@ export default function ClientPage(props) {
 
     const editClient = () => {
         const body = { phone: phone, email: email };
-        fetch(`https://localhost:3000/api/users/${props.user.id}`, {
+        fetch(`https://wine-for-all.herokuapp.com/api/users/${props.user.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),

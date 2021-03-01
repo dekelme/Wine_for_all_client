@@ -48,7 +48,7 @@ export default function AddWine(props) {
     const addWine = () => {
         if (wineValidation()) {
             const body = { wineName: wineName, year: year, kind: kind, color: color, winePrice: winePrice, foodPairing: foodPairing, description: description, winePic: winePic ,manufacture: manufacture };
-            fetch(`http://localhost:3000/api/wines`, {
+            fetch(`https://wine-for-all.herokuapp.com/api/wines`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
