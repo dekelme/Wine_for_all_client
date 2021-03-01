@@ -5,7 +5,7 @@ import './WineTable.css';
 export default function WineTable(props) {
     const eachItem = (item) => {
         return (
-            <WineTab id={item.id} item={item} idManufacture={props.idManufacture} idClient={props.idClient}> 
+            <WineTab id={item.id} item={item} idManufacture={props.idManufacture} idClient={props.idClient} giveUpOnWine={props.giveUpOnWine} client={props.client}> 
                 {props.children}
             </WineTab>
         )

@@ -33,7 +33,7 @@ export default function ManufacturePage(props) {
     // }, [])
     return (
     <div className={"manufactureMainPage"}>
-      <PrivatePage label1={"General"} label2={"My Wines"} label3={"Shipping"} 
+      <PrivatePage label1={"General"} label2={"My Wines"}
       firstHead={"Prsonal deatails"} user={user} wines={wines} shipping={shipping} ismanufacture={true} isClient={false}
       />
     </div>

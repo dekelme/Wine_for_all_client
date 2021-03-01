@@ -52,8 +52,6 @@ export default function SignInDeatils(props) {
       errors.push("Phone must to be numbers. \n")
     if (isNaN(phone))
       errors.push("Phone must to be numbers. \n")
-    if (isNaN(dateOfBirth))
-      errors.push("dateOfBirth must to be numbers. \n")
     if (isNaN(zip))
       errors.push("Age must to be numbers. \n")
     if (errors.length > 0)

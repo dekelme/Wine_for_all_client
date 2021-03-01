@@ -92,8 +92,13 @@ export default function WineTab (props) {
             <div>
               <div className={"butRow"}>
                 {/* {isClientExist()} */}
+               {props.client?  
+               <Button onClick={() => props.giveUpOnWine(props.item.id)}>Remove From Favorite</Button>
+               :
+               <>
                 <WineEdit idWine={props.item.id} idManufacture={props.idManufacture}/>
                 <WineDelete idWine={props.item.id} idManufacture={props.idManufacture}/>
+                </>}
               </div>
             </div>
             </Typography>
