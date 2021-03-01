@@ -36,7 +36,7 @@ export default function Login(props) {
 		// 	headers: { 'Content-Type': 'application/json' },
 		// 	body: { token: response.tokenId},
 		// })
-		axios.post(`http://localhost:3000/api/auth/login`, { token }, { withCredentials: true, credentials: 'include' })
+		axios.post(`https://wine-for-all.herokuapp.com/api/auth/login`, { token }, { withCredentials: true, credentials: 'include' })
 			// .then(response => response.json())
 			.then(result => {
 				const cookiePromise = new Promise((resolve, reject) => {

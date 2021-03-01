@@ -8,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select'
 import { Button } from '@material-ui/core';
+import { useCookies } from "react-cookie";
 // import moment from 'moment';
 
 export default function AddWine(props) {
@@ -21,6 +22,7 @@ export default function AddWine(props) {
     const [manufacture, setManufacture] = useState("");
     const [winePic, setWinePic] = useState("");
     const [add, setOpenAdd] = useState(false);
+    const [cookies] = useCookies(['user']);
 
     const wineValidation = () => {
         let errors = [];
@@ -48,11 +50,16 @@ export default function AddWine(props) {
     const addWine = () => {
         if (wineValidation()) {
             const body = { wineName: wineName, year: year, kind: kind, color: color, winePrice: winePrice, foodPairing: foodPairing, description: description, winePic: winePic ,manufacture: manufacture };
-            fetch(`https://wine-for-all.herokuapp.com/api/wines`, {
+            fetch(`https://wine-for-all.herokuapp.com/api/wines`,{
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'user': cookies.user.id
+                },
                 body: JSON.stringify(body),
             })
+    
                 .then(response => response.json())
                 .then(result => {
                     setOpenAdd(false);

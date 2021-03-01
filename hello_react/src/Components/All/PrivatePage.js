@@ -25,6 +25,7 @@ import HouseIcon from '@material-ui/icons/House';
 import AddWine from '../Manufacture/AddWine';
 import './PrivatePage.css';
 import WineTable from '../Manufacture/WineTable';
+import { useCookies } from "react-cookie";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,6 +61,7 @@ export default function PrivatePage(props) {
   const [clientID, setClientID] = useState("");
   const [openShipping, setOpenShipping] = useState(false);
   const [openWine, setOpenWine] = useState(false);
+  const [cookies, setCookies] = useCookies(['user']);
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -67,11 +69,15 @@ export default function PrivatePage(props) {
   };
   const addShipping = () => {
     const body = { orderPrice: orderPrice, orderDate: orderDate, shippingAddress: shippingAddress, shippingPrice: shippingPrice, manufctureID: manufctureID, clientID: clientID };
-    fetch(`https://wine-for-all.herokuapp.com/api/shippings`, {
+    fetch(`https://wine-for-all.herokuapp.com/api/shippings`,  {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      headers: {
+          'Content-Type': 'application/json',
+          'user': cookies.user.googleID
+      },
       body: JSON.stringify(body),
-    })
+  })
       .then(response => response.json())
       .then(result => {
         setOpenShipping(false)
@@ -88,11 +94,15 @@ export default function PrivatePage(props) {
   const giveUpOnWine = (id) => {
     console.log(id)
     const body = { wine: id }
-    fetch(`https://wine-for-all.herokuapp.com/api/users/${props.user.id}`, { 
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-    })
+    fetch(`https://wine-for-all.herokuapp.com/api/users/${cookies.user.id}`, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+          'Content-Type': 'application/json',
+          'user': cookies.user.id
+      },
+      body: JSON.stringify(body),
+  })
       .then(response => response.json())
       .then(result => {
         let path = '/Client'

@@ -3,21 +3,28 @@ import './PersonalDeatails.css';
 import { Button } from '@material-ui/core';
 import PopUp from '../All/PopUp';
 import TextField from '@material-ui/core/TextField';
+import { useCookies } from "react-cookie";
 
 export default function ClientPage(props) {
     const [openEdit, setOpenEdit] = useState(false);
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [cookies, setCookies] = useCookies(['user']);
     // const [favoriteCountry,setFavoriteCountry] = useState("");
 
 
     const editClient = () => {
         const body = { phone: phone, email: email };
-        fetch(`https://wine-for-all.herokuapp.com/api/users/${props.user.id}`, {
+        fetch(`https://wine-for-all.herokuapp.com/api/users/${props.user.id}`,  {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'user': cookies.user.id
+            },
             body: JSON.stringify(body),
         })
+
             .then(response => response.json())
             .then(result => {
                 setOpenEdit(false);

@@ -11,27 +11,33 @@ export default function WinePage(props) {
   const [wine, setWine] = useState("");
   const [cookies] = useCookies(['user']);
 
-  useEffect(() => {
-    fetch(`https://wine-for-all.herokuapp.com/api/wine?_id=${wine._id}`, { withCredentials: true, credentials: 'include' })
-      .then(response => response.json())
-      .then(result =>  {
-        setWine(result)
-      })    
-  },[wine])
+  // useEffect(() => {
+  //   fetch(`https://wine-for-all.herokuapp.com/api/wine?id=${wine.id}`, {
+  //     credentials: 'include',
+  //     headers: {
+  //         'Content-Type': 'application/json',
+  //         'user': cookies.user.id
+  //     }
+  // })
+  //     .then(response => response.json())
+  //     .then(result =>  {
+  //       setWine(result)
+  //     })    
+  // },[wine])
   const addToFav = () => {
-    fetch(`https://wine-for-all.herokuapp.com/api/client?googleID=${1}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(wine),
-        })
+    const body = {wineAdd: props.item.id}
+    fetch(`https://wine-for-all.herokuapp.com/api/users/${cookies.user.id}`,{
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+          'Content-Type': 'application/json',
+          'user': cookies.user.id
+      },
+      body: JSON.stringify(body),
+  })
         .then(response => response.json())
         .then(result => { 
-          let path = '/favorite'
           alert("Wine added to Favorite")
-          history.push({
-            pathname: path,
-            user: result
-          })
         })
     };
     const haveWine = () => {

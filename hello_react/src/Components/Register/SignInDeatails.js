@@ -34,7 +34,13 @@ export default function SignInDeatils(props) {
   const [founded, setFounded] = useState("")
 
   useEffect(() => {
-    fetch(`https://wine-for-all.herokuapp.com/api/users/${cookies.user.id}`, { credentials: 'include' })
+    fetch(`https://wine-for-all.herokuapp.com/api/users/${cookies.user.id}`,{
+      credentials: 'include',
+      headers: {
+          'Content-Type': 'application/json',
+          'user': cookies.user.id
+      }
+  })
       .then(response => response.json())
       .then(result => {
         setUser(result)
@@ -62,12 +68,15 @@ export default function SignInDeatils(props) {
   const addAdditionalInformation = () => {
     if (userValidation()) {
       const body = { phone: phone, gender: gender, dateOfBirth: dateOfBirth, city: city, street: street, zip: zip, founded: founded };
-      fetch(`https://wine-for-all.herokuapp.com/api/users/${user.id}`, {
+      fetch(`https://wine-for-all.herokuapp.com/api/users/${cookies.user.id}`,{
         method: 'PUT',
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'user': cookies.user.id
+        },
         body: JSON.stringify(body),
-      })
+    })
         .then(response => response.json())
         .then(result => {
           setGender("")

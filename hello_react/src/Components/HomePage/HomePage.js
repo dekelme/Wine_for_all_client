@@ -16,7 +16,13 @@ export default function HomePage(props) {
     const [user, setUser] = useState("")
 
     useEffect(() => {
-        fetch(`https://wine-for-all.herokuapp.com/api/users/2`, { withCredentials: true, credentials: 'include' })
+        fetch(`https://wine-for-all.herokuapp.com/api/users/${cookies.user.id}`,{
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'user': cookies.user.id
+            }
+        })
             .then(response => response.json())
             .then(result => {
                 setUser(result)
@@ -69,7 +75,7 @@ export default function HomePage(props) {
                     <div className={"options"}>
                         <h3><Link to={{ pathname: '/HomePage' }}>About</Link></h3>
                         <h3><Link to={{ pathname: '/RenterSearch', user: user, renter: true }}>Search</Link></h3>
-                        {/* <h3>Hello {user.firstName} {user.lastName} </h3> */}
+                        <h3>Hello {user.firstName} {user.lastName} </h3>
                         <h3><Button onClick={logout}><h3>LOGOUT</h3></Button></h3>
                     </div>
                 </div>
