@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function WineTab (props) {
-    const [expanded, setExpanded] = useState(false);
+  const classes = useStyles();  
+  const [expanded, setExpanded] = useState(false);
     // const [openRenter,setOpenRenter] = useState("")
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -74,7 +75,7 @@ export default function WineTab (props) {
       <div className={"WineContainer"}>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel1bh-header">
-              <Typography className={classes.heading}>{props.item.name},{props.item.kind}</Typography>
+              <Typography className={classes.heading}>{props.item.wineName}, {props.item.kind}</Typography>
               {/* {isRenterExistTop()} */}
           </AccordionSummary>
           <AccordionDetails>
@@ -90,7 +91,7 @@ export default function WineTab (props) {
             </div>
             <div>
               <div className={"butRow"}>
-                {isClientExist()}
+                {/* {isClientExist()} */}
                 <WineEdit idWine={props.item.id} idManufacture={props.idManufacture}/>
                 <WineDelete idWine={props.item.id} idManufacture={props.idManufacture}/>
               </div>

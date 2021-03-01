@@ -17,14 +17,14 @@ export default function RenterPage(props) {
       })    
   }, [])
   useEffect(() => {
-    fetch(`https://wine-for-all.herokuapp.com/api/wines?clientID=1`, { withCredentials: true, credentials: 'include' })
+    fetch(`https://wine-for-all.herokuapp.com/api/wines?clientID=3`, { withCredentials: true, credentials: 'include' })
       .then(response => response.json())
       .then(result => {
         setWantedWine(result)
     })
   }, [])
   useEffect(() => {
-    fetch(`https://wine-for-all.herokuapp.com/api/shippings?clientID=1`, { withCredentials: true, credentials: 'include' })
+    fetch(`https://wine-for-all.herokuapp.com/api/shippings?clientID=3`, { withCredentials: true, credentials: 'include' })
       .then(response => response.json())
       .then(result =>  {
         setClientShiiping(result)

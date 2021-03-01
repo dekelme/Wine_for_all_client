@@ -8,7 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select'
 import { Button } from '@material-ui/core';
-import moment from 'moment';
+// import moment from 'moment';
 
 export default function AddWine(props) {
 
@@ -56,8 +56,9 @@ export default function AddWine(props) {
             })
                 .then(response => response.json())
                 .then(result => {
+                    console.log(body)
                     setOpenAdd(false);
-                    setEditWine(result);
+                    setWine(result);
                     setWineName("");
                     setYear("");
                     setKind("");
@@ -73,8 +74,8 @@ export default function AddWine(props) {
     return (
         <div className={"addWineContainer"}>
             <div >
-                <Button variant="contained" color="primary" className={"addButWine"} onClick={() => setOpenAdd(true)}>Edit Wine</Button>
-                <PopUp onSubmit={addWine} title={"Add Wine"} open={add} closePopup={() => setOpenAdd(false)} sendBtn={true} showBt={true}>
+                <Button variant="contained" style={{ backgroundColor: '#B98E52' }} className={"addButWine"} onClick={() => setOpenAdd(true)}>Edit Wine</Button>
+                <PopUp onSubmit={editWine} title={"Add Wine"} open={add} closePopup={() => setOpenAdd(false)} sendBtn={true} showBt={true}>
                     <div className={"addWineForm"}>
                         <TextField label="Wine Name" onChange={(event) => setWineName(event.target.value)} value={wineName} fullWidth required />
                         <TextField label="Year" onChange={(event) => setYear(event.target.value)} value={year} fullWidth required />

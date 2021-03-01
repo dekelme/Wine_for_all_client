@@ -24,6 +24,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import HouseIcon from '@material-ui/icons/House';
 import AddWine from '../Manufacture/AddWine';
 import './PrivatePage.css';
+import WineTable from '../Manufacture/WineTable';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -122,28 +123,30 @@ export default function PrivatePage(props) {
     }
   }
   const wantedWine = () => {
-    if (props.wines == null) {
-      return (
-        <Stepper active orientation="vertical">
-          <Step >
-            <StepLabel style={{ fontFamily: 'Lato' }}></StepLabel>
-            <StepContent>
-              <Typography style={{ fontFamily: 'Lato' }}>You don't have any Wine in favorite</Typography>
-            </StepContent>
-          </Step>
-        </Stepper>
-      )
-    }
-    else {
+    // if (props.wines) {
+    //   return (
+    //     <Stepper active orientation="vertical">
+    //       <Step >
+    //         <StepLabel style={{ fontFamily: 'Lato' }}></StepLabel>
+    //         <StepContent>
+    //           <Typography style={{ fontFamily: 'Lato' }}>You don't have any Wine in favorite</Typography>
+    //         </StepContent>
+    //       </Step>
+    //     </Stepper>
+    //   )
+    // }
+    //else {
       return (
         <Stepper active orientation="vertical">
           <Step >
             <StepLabel style={{ fontFamily: 'Lato' }}>My Favorite</StepLabel>
             <StepContent>
               <Button variant="contained" color="primary" size="small" onClick={() => setOpenWine(true)}>Wine details</Button>
-              <PopUp onSubmit={() => setOpenWine(false)} wantWineBtn={false} title={props.wines.wineName} open={openWine} closePopup={() => setOpenWine(false)} sendBtn={false} showBt={true}> 
+              {/* <PopUp onSubmit={() => setOpenWine(false)} wantWineBtn={false} title={props.wines.wineName} open={openWine} closePopup={() => setOpenWine(false)} sendBtn={false} showBt={true}> 
                 <WineDeatails item={props.wines} />
-              </PopUp>
+              </PopUp> */}
+              {/* {console.log(props.wines)} */}
+              
             </StepContent>
           </Step>
           <Step active>
@@ -164,7 +167,7 @@ export default function PrivatePage(props) {
           </Step> */}
         </Stepper>
       )
-    }
+    //}
   }
   const label1 = () => {
     if (props.isClient) {
@@ -187,11 +190,10 @@ export default function PrivatePage(props) {
               <p>{props.user.phone}</p>
             </div>
           </div>
-          <h1>Wine deatails</h1>
           <div className={"currentContainerRow"}>
             <div className={"prsonalDetmanufacture"}>
-              <HouseIcon style={{ width: '20%', height: '20%', margin: '5%' }} />
-              <h3>Number of Wines</h3>
+              <h3>Founded</h3>
+              <p>{props.user.founded}</p>
               {/* <p>{props.Wines.length}</p> */}
             </div>
             {/* <div className={"prsonalDetmanufacture"}>
@@ -208,6 +210,7 @@ export default function PrivatePage(props) {
     if (props.isClient) {
       return (
         <>
+        
         {/* <Map asset = {props.wantedAsset} />
         {props.wantedAsset ? <div><p>Here you can see map of your wanted country, enjoy!</p></div> : <div><p>There is not map yet, find your next asset to see one</p></div>} */}
         </>
@@ -217,6 +220,7 @@ export default function PrivatePage(props) {
       return (
         <>
           <h2>My Wines</h2>
+          <WineTable WineList={props.wines} />
           {/* <WinesTable winesList={props.wines} idManufacture={props.user.id}/> */}
           <AddWine idManufacture={props.user.id} />
         </>

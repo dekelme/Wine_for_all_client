@@ -86,7 +86,7 @@ export default function SignInDeatils(props) {
   return (
     <div className={'background'}>
       <h1 className={"headSignIn"}>Wine For All</h1>
-      <div className={"SignInDeatilsContainer"}>
+      <div className={"SignInDeatailsContainer"}>
         <p>Additional Information</p>
         <form className={classes.root} autoComplete="off">
           <div className={"colForm"}>
@@ -165,7 +165,7 @@ export default function SignInDeatils(props) {
             </div>
           </div>
         </form>
-        <Button variant="contained" color="primary" onClick={addAdditionalInformation}><p>SEND</p></Button>
+        <Button variant="contained" style={{backgroundColor: '#B98E52', color:' #ffffff', fontFamily: "Roboto Condensed"}} onClick={addAdditionalInformation}><p>SEND</p></Button>
       </div>
       <Footer />
     </div>

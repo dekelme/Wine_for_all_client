@@ -13,15 +13,18 @@ export default function WineDelete(props) {
 		})  
 	},[props.idWine])
     const deleteWine = () => {
-		fetch(`https://wine-for-all.herokuapp.com/api/wine/${wine.id}`, {
+		fetch(`https://wine-for-all.herokuapp.com/api/wines/${wine.id}`, {
 		method: 'DELETE',
 		})
 		.then(response => response.json())
-		.then(result => {})
+		.then(result => {
+			window.location.reload();
+		})
+
 	}
 	return (
 		<div className={"deleteWineContainer"}>
-			<Button variant="contained" color="primary" className={"but"} onClick={deleteWine}>Delete</Button>
+			<Button variant="contained" style={{ backgroundColor: '#B98E52' }} className={"but"} onClick={deleteWine}>Delete</Button>
 	</div>
   );
 }
