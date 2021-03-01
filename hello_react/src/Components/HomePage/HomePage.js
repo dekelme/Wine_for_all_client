@@ -11,11 +11,11 @@ export default function HomePage(props) {
     const [positionPopUp, setPositionPopUp] = useState(true)
     const [client, setClient] = useState(false)
     const [manufacture, setManufacture] = useState(false)
-    // const [cookies, setCookie] = useCookies(['user']);
+    const [cookies, setCookie] = useCookies(['user']);
     const [user, setUser] = useState("")
 
     useEffect(() => {
-        fetch(`https://localhost:3000/api/users/${1}`, { withCredentials: true, credentials: 'include' })
+        fetch(`https://localhost:3000/api/users/2`, { withCredentials: true, credentials: 'include' })
             .then(response => response.json())
             .then(result => {
                 setUser(result)
@@ -25,7 +25,7 @@ export default function HomePage(props) {
     const logout = () => {
         fetch(`https://localhost:3000/api/auth/logout`, { withCredentials: true, credentials: 'include' })
             .then(result => {
-                // setCookie('user', '')
+                setCookie('user', '')
                 history.push('/')
             })
             .catch(err => console.log(err))

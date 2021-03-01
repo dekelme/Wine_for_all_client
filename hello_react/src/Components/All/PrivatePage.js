@@ -23,7 +23,6 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import MessageIcon from '@material-ui/icons/Message';
 import HouseIcon from '@material-ui/icons/House';
 import AddWine from '../Manufacture/AddWine';
-import WineTable from '../Manufacture/WineTable';
 import './PrivatePage.css';
 
 function TabPanel(props) {
@@ -142,7 +141,7 @@ export default function PrivatePage(props) {
             <StepLabel style={{ fontFamily: 'Lato' }}>My Favorite</StepLabel>
             <StepContent>
               <Button variant="contained" color="primary" size="small" onClick={() => setOpenWine(true)}>Wine details</Button>
-              <PopUp onSubmit={() => setOpenWine(false)} wantAssetBtn={false} title={props.wantedWine.name} open={openAsset} closePopup={() => setOpenWine(false)} sendBtn={false} showBt={true}> 
+              <PopUp onSubmit={() => setOpenWine(false)} wantAssetBtn={false} title={props.wantedWine.name} open={openWine} closePopup={() => setOpenWine(false)} sendBtn={false} showBt={true}> 
                 <WineDeatails item={props.wantedWine} />
               </PopUp>
             </StepContent>
@@ -151,7 +150,7 @@ export default function PrivatePage(props) {
             <StepContent>
               <Button variant="contained" color="primary" size="small" onClick={() => setOpenShipping(true)}>Shipping Wine</Button>
               <PopUp onSubmit={addShipping} title={"Send Wine"} open={openShipping} closePopup={() => setOpenShipping(false)} sendBtn={true} showBt={true}>
-                <TextField label="Shipping" value={shipping} multiline rows={4} onChange={e => setShipping(e.target.value)} variant="outlined" fullWidth required style={{marginTop:"1%"}}/>
+                {/* <TextField label="Shipping" value={shipping} multiline rows={4} onChange={e => setShipping(e.target.value)} variant="outlined" fullWidth required style={{marginTop:"1%"}}/> */}
               </PopUp>
               <Button variant="contained" color="primary" size="small" onClick={() => giveUpOnWine()}>Remove wine from favorite</Button>
             </StepContent>
@@ -218,7 +217,7 @@ export default function PrivatePage(props) {
       return (
         <>
           <h2>My Wines</h2>
-          <WinesTable winesList={props.wines} idManufacture={props.user.id}/>
+          {/* <WinesTable winesList={props.wines} idManufacture={props.user.id}/> */}
           <AddWine idManufacture={props.user.id} />
         </>
       )

@@ -1,6 +1,6 @@
 import {Route} from 'react-router-dom';
 import ClientSearch from "../Components/WineSearch/ClientSearch";
-import SignIn from '../Components/Register/SignIn';
+import Signin from '../Components/Register/Signin';
 import SignInDeatails from '../Components/Register/SignInDeatails';
 import ManufacturePage from '../Components/Manufacture/ManufacturePage';
 import HomePage from '../Components/HomePage/HomePage';
@@ -11,7 +11,7 @@ import UserRouter from "./userRouter";
 const ReactRouter = () => {
     return (
         <>
-            <Route exact path="/" component={SignIn}/>
+            <Route exact path="/" component={Signin}/>
             <UserRouter exact path="/HomePage" component={HomePage}/>
             <UserRouter exact path="/ClientSearch" component={ClientSearch}/>
             <UserRouter path="/SignInDeatails" component={SignInDeatails} />

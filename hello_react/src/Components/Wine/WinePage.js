@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
-import WineDeatails from '../wine/WineDeatails';
-import PopUp from '../global/PopUp';
+import WineDeatails from '../Wine/WineDeatails';
+import PopUp from '../All/PopUp';
 import {useHistory} from "react-router-dom";
 import {useCookies} from "react-cookie";
 

@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import { useState } from 'react';
-import WineList from '../wine/WinesList';
+import WineList from '../Wine/WineList';
 import TextField from '@material-ui/core/TextField';
 import PopUp from '../All/PopUp';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './WineSearchForm.css';
+import NavBar from '../All/NavBar';
 
 export default function AssetSearchForm(props) {
     const [wineName, setWineName] = useState("");
@@ -39,7 +40,7 @@ export default function AssetSearchForm(props) {
     }
     return (
         <div>
-            <Header />
+            <NavBar />
             <div className={'wrapper'}>
                 <div className={'background'}></div>
                 <div className={'Search'}>

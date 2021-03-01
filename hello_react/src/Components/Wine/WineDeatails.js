@@ -1,4 +1,4 @@
-import './WineDeatils.css';
+import './WineDeatails.css';
 
 export default function WinePage(props) {
     return (
