@@ -22,7 +22,7 @@ export default function NavBar(props) {
             <>
                 <div className={"rowOptionsNavBar"}>
                     <h4><Link to={{ pathname: "/Search"}}>Search</Link></h4>
-                    <h4><Link to={{ pathname: "/Client",user:props.userId}}>Hello {cookies.user.FirstName} {cookies.user.LastName}</Link></h4>
+                    {/* <h4><Link to={{ pathname: "/Client",user:props.userId}}>Hello {cookies.user.FirstName} {cookies.user.LastName}</Link></h4> */}
                     <Button aria-controls="simple-menu" aria-haspopup="true" onClick={logout} style={{color:'white', fontFamily: 'Lato',fontWeight: 'bold', fontSize: '100%'}}>
                         LOGOUT
                     </Button>

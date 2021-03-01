@@ -40,7 +40,6 @@ export default function AssetSearchForm(props) {
     }
     return (
         <div>
-            <NavBar />
             <div className={'wrapper'}>
                 <div className={'background'}></div>
                 <div className={'Search'}>
@@ -48,7 +47,7 @@ export default function AssetSearchForm(props) {
                         <div><TextField className="input" label="Wine Name" onChange={(event) => setWineName(event.target.value)} value={wineName} /></div>
                         <div><TextField className="input" label="Manufacture" onChange={(event) => setManufacture(event.target.value)} value={manufacture} /></div>
                         <div className={"selectOption"}>
-                            <FormControl style={{ minWidth: "40%" }} >
+                            <FormControl style={{ minWidth: "100%" }} >
                                 <InputLabel htmlFor="age-native-simple">Food Pairing</InputLabel>
                                 <Select native value={foodPairing} onChange={e => setFoodPairing(e.target.value)}>
                                     <option aria-label="None" value="foodPairing" />
@@ -61,7 +60,7 @@ export default function AssetSearchForm(props) {
                             </FormControl>
                         </div>
                         <div className={"selectOption"}>
-                            <FormControl style={{ minWidth: "40%" }} >
+                            <FormControl style={{ minWidth: "100%" }} >
                                 <InputLabel htmlFor="age-native-simple">Wine Kind</InputLabel>
                                 <Select native value={kind} onChange={e => setKind(e.target.value)}>
                                     <option aria-label="None" value="kind" />
@@ -79,7 +78,7 @@ export default function AssetSearchForm(props) {
                             <FormControlLabel control={<Checkbox onChange={e => setColor(e.target.value)} value={"White"} />} label="White" />
                             <FormControlLabel control={<Checkbox onChange={e => setColor(e.target.value)} value={"Rose"} />} label="Rose" />
                         </div>
-                        <div><Button variant="contained" onClick={onSubmit} value="search" >search</Button> </div>
+                        <div className={'searchbt'} ><Button variant="contained" onClick={onSubmit} value="search" >search</Button> </div>
                     </form>
                     <WineList WineList={wineList} />
                 </div>

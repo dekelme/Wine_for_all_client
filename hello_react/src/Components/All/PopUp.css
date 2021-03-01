@@ -1,5 +1,5 @@
 .popup {
-    background-color: #EDF5FF;
+    background-color: #FFFFFF;
     width: 30%;
     margin: 5% auto;
     border-radius: 10px;
@@ -11,6 +11,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    color: #6d6d6d;
 }
 .popup .title .closeBtn {
     width: 10%;

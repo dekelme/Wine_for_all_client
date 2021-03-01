@@ -28,7 +28,7 @@ export default function ClientPage(props) {
     const isClient = () => {
         return (
             <>
-                <div><Button style={{ marginBottom: '5%' }} variant="contained" color="primary" onClick={() => setOpenEdit(true)}>Edit</Button></div>
+                <div><Button style={{ marginBottom: '5%' }} variant="contained" style={{ backgroundColor: '#B98E52' }} onClick={() => setOpenEdit(true)}>Edit</Button></div>
                 <PopUp onSubmit={editClient} title={"Edit User"} open={openEdit} closePopup={() => setOpenEdit(false)} sendBtn={true} showBt={true}>
                     <TextField label="Phone" value={phone} onChange={e => setPhone(e.target.value)} fullWidth required />
                     <TextField label="Email" value={email} onChange={e => setEmail(e.target.value)} fullWidth required />
@@ -44,14 +44,14 @@ export default function ClientPage(props) {
     }
     return (
         <div className={"personalDeatails"}>
-            <img src={props.imageURL} alt="profile" />
+            <img src={props.ImageUrl} alt="profile" />
             <h1>{props.FirstName} {props.LastName}</h1>
             {/* <h3>{props.JobTitle}</h3> */}
             <div className={"line"}></div>
-            <p>Phone</p>
+            {/* <p>Phone</p>
             <span>{props.phone}</span>
             <p>Email</p>
-            <span>{props.email}</span>
+            <span>{props.email}</span> */}
             {props.isRenter ? isClient() : isManufacture()}
         </div>
     );

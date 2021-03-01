@@ -7,18 +7,22 @@
 }
 .navBar h1 {
     margin-left: 5%; 
+    
  
 }
 .navBar h1 a {
     font-size: 210%;
+    color: white;
+    /* text-decoration: none; */
 }
 .navBar h4 a{
     color:  #F8F8F8;
     font-size: 110%;
+    /* text-decoration: none; */
 }
 .navBar h4 {
     margin-right: 20%;
-    margin-top: -2%;   
+    margin-top: -8%;   
 }
 .rowOptionsNavBar{
     display: flex;
@@ -26,5 +30,5 @@
     margin-left: 40%;
 }
 .rowOptionsNavBar button {
-    margin-top: -3%;   
+    margin-top: -12%;   
 }

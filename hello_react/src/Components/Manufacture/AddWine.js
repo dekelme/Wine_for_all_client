@@ -36,8 +36,8 @@ export default function AddWine(props) {
             errors.push("color is requierd, please make sure the field is full. \n")
         if (foodPairing === "")
             errors.push("foodPairing is requierd, please make sure the field is full. \n")
-        if (manufacture === "")
-            errors.push("kind is requierd, please make sure the field is full. \n")
+        // if (manufacture === "")
+        //     errors.push("kind is requierd, please make sure the field is full. \n")
         if (winePic === "")
             errors.push("wine url Picture is requierd, please make sure the field is full. \n")
         if (errors.length > 0)
@@ -47,8 +47,8 @@ export default function AddWine(props) {
     }
     const addWine = () => {
         if (wineValidation()) {
-            const body = { wineName: wineName, year: year, kind: kind, color: color, winePrice: winePrice, foodPairing: foodPairing, description: description, manufacture: manufacture, winePic: winePic};
-            fetch(`https://localhost:3000/api/wines`, {
+            const body = { wineName: wineName, year: year, kind: kind, color: color, winePrice: winePrice, foodPairing: foodPairing, description: description, winePic: winePic ,manufacture: manufacture };
+            fetch(`http://localhost:3000/api/wines`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
@@ -63,14 +63,14 @@ export default function AddWine(props) {
                     setWinePrice("");
                     setFoodPairing("");
                     setDescription("");
-                    setManufacture("");
+                    // setManufacture("");
                     setWinePic("");
                 })
         }
     }
     return (
         <div >
-            <Button variant="contained" color="primary" className={"addButWine"} onClick={() => setOpenAdd(true)}>Add new Wine</Button>
+            <Button variant="contained" style={{ backgroundColor: '#B98E52' }} className={"addButWine"} onClick={() => setOpenAdd(true)}>Add new Wine</Button>
             <PopUp onSubmit={addWine} title={"Add Wine"} open={add} closePopup={() => setOpenAdd(false)} sendBtn={true} showBt={true}>
                 <div className={"addWineForm"}>
                     <TextField label="Wine Name" onChange={(event) => setWineName(event.target.value)} value={wineName} fullWidth required />
@@ -85,6 +85,8 @@ export default function AddWine(props) {
                             <option>Chardonnay</option>
                             <option>Sauvignon Blanc</option>
                         </Select>
+                    </FormControl>
+                    <FormControl fullWidth >
                         <InputLabel htmlFor="age-native-simple">Color</InputLabel>
                         <Select native value={color} onChange={e => setColor(e.target.value)}>
                             <option aria-label="None" value="color" />
@@ -92,6 +94,8 @@ export default function AddWine(props) {
                             <option>White</option>
                             <option>Rose</option>
                         </Select>
+                    </FormControl>
+                    <FormControl fullWidth >
                         <InputLabel htmlFor="age-native-simple">Suits for</InputLabel>
                         <Select native value={foodPairing} onChange={e => setFoodPairing(e.target.value)}>
                             <option aria-label="None" value="foodPairing" />
@@ -104,7 +108,7 @@ export default function AddWine(props) {
                     </FormControl>
                     <TextField label="Wine Price" onChange={(event) => setWinePrice(event.target.value)} value={winePrice} fullWidth />
                     <TextField id="outlined-multiline-static" label="Description" multiline rows={4} onChange={(event) => setDescription(event.target.value)} value={description} variant="outlined" fullWidth />
-                    <TextField label="Manufacture" onChange={(event) => setManufacture(event.target.value)} value={manufacture} fullWidth />
+                    {/* <TextField label="Manufacture" onChange={(event) => setManufacture(event.target.value)} value={manufacture} fullWidth /> */}
                     <TextField label="Wine Picture Url" onChange={(event) => setWinePic(event.target.value)} value={winePic} name="winePic" fullWidth />
                 </div>
             </PopUp>

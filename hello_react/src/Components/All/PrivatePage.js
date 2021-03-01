@@ -86,7 +86,7 @@ export default function PrivatePage(props) {
   }
   const giveUpOnWine = () => {
     const body = { clientID: -1 }
-    fetch(`https://localhost:3000/api/wines/${props.wantedAsset.id}`, { //fix
+    fetch(`https://localhost:3000/api/wines/${props.wantedWine.id}`, { //fix
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -192,7 +192,7 @@ export default function PrivatePage(props) {
             <div className={"prsonalDetmanufacture"}>
               <HouseIcon style={{ width: '20%', height: '20%', margin: '5%' }} />
               <h3>Number of Wines</h3>
-              <p>{props.Wines.length}</p>
+              {/* <p>{props.Wines.length}</p> */}
             </div>
             {/* <div className={"prsonalDetmanufacture"}>
               <MessageIcon style={{ width: '20%', height: '20%', margin: '5%' }} />

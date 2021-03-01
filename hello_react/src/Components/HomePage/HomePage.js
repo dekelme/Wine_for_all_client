@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { useCookies } from "react-cookie";
 
+
 export default function HomePage(props) {
     let history = useHistory()
     const [positionPopUp, setPositionPopUp] = useState(true)
@@ -35,15 +36,15 @@ export default function HomePage(props) {
         if (client === true) {
             return (
                 <div className={"buttons"}>
-                    <Link to={{ pathname: "/ClientSearch", user: user, isRenter: true }}><Button><p>Search for Wine</p></Button></Link>
-                    <Link to={{ pathname: "/Client", user: user, isRenter: true }}><Button type={"submit"}><p>My Favorite</p></Button></Link>
+                    <Link to={{ pathname: "/ClientSearch", user: user, isClient: true }}><Button style={{backgroundColor: '#B98E52'}}><p>Search for Wine</p></Button></Link>
+                    <Link to={{ pathname: "/Client", user: user, isClient: true }}><Button style={{backgroundColor: '#B98E52'}} type={"submit"}><p>My Favorite</p></Button></Link>
                 </div>
             )
         }
         if (manufacture === true) {
             return (
                 <div className={"buttons"}>
-                    <Link to={{ pathname: "/ManufacturePage", user: user, isRenter: false }}><Button type={"submit"}><p>Manufacture page</p></Button></Link>
+                    <Link to={{ pathname: "/ManufacturePage", user: user, isClient: false }}><Button style={{backgroundColor: '#B98E52'}} type={"submit"}><p>Manufacture page</p></Button></Link>
                 </div>
             )
         }
@@ -52,8 +53,8 @@ export default function HomePage(props) {
         return (
             <PopUp open={positionPopUp} title={"Choose your position"} closePopup={() => alert("you have to choose an position")} showBt={false}>
                 <div className={"buttonsChoose"} >
-                    <Button variant="contained" color="primary" onClick={() => { setClient(true); setPositionPopUp(false); }}><p>I'm a Client</p></Button>
-                    <Button variant="contained" color="primary" onClick={() => { setManufacture(true); setPositionPopUp(false); }}><p>I'm a Manufacture</p></Button>
+                    <Button variant="contained" style={{backgroundColor: '#B98E52', color:' #ffffff', fontFamily: "Roboto Condensed"}} onClick={() => { setClient(true); setPositionPopUp(false); }}><p>I'm a Client</p></Button>
+                    <Button variant="contained" style={{backgroundColor: '#B98E52', color:' #ffffff', fontFamily: "Roboto Condensed"}} onClick={() => { setManufacture(true); setPositionPopUp(false); }}><p>I'm a Manufacture</p></Button>
                 </div>
             </PopUp>
 

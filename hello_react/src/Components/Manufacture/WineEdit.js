@@ -73,45 +73,49 @@ export default function AddWine(props) {
     return (
         <div className={"addWineContainer"}>
             <div >
-            <Button variant="contained" color="primary" className={"addButWine"} onClick={() => setOpenAdd(true)}>Edit Wine</Button>
-            <PopUp onSubmit={addWine} title={"Add Wine"} open={add} closePopup={() => setOpenAdd(false)} sendBtn={true} showBt={true}>
-                <div className={"addWineForm"}>
-                    <TextField label="Wine Name" onChange={(event) => setWineName(event.target.value)} value={wineName} fullWidth required />
-                    <TextField label="Year" onChange={(event) => setYear(event.target.value)} value={year} fullWidth required />
-                    <FormControl fullWidth >
-                        <InputLabel htmlFor="age-native-simple">Kind</InputLabel>
-                        <Select native value={kind} onChange={e => setKind(e.target.value)}>
-                            <option aria-label="None" value="kind" />
-                            <option>Cabernet Sauvignon</option>
-                            <option>Syrah</option>
-                            <option>Pinot Noir</option>
-                            <option>Chardonnay</option>
-                            <option>Sauvignon Blanc</option>
-                        </Select>
-                        <InputLabel htmlFor="age-native-simple">Color</InputLabel>
-                        <Select native value={color} onChange={e => setColor(e.target.value)}>
-                            <option aria-label="None" value="color" />
-                            <option>Red</option>
-                            <option>White</option>
-                            <option>Rose</option>
-                        </Select>
-                        <InputLabel htmlFor="age-native-simple">Suits for</InputLabel>
-                        <Select native value={foodPairing} onChange={e => setFoodPairing(e.target.value)}>
-                            <option aria-label="None" value="foodPairing" />
-                            <option>Fish</option>
-                            <option>Sushi</option>
-                            <option>Steak</option>
-                            <option>Italian</option>
-                            <option>Desserts</option>
-                        </Select>
-                    </FormControl>
-                    <TextField label="Wine Price" onChange={(event) => setWinePrice(event.target.value)} value={winePrice} fullWidth />
-                    <TextField id="outlined-multiline-static" label="Description" multiline rows={4} onChange={(event) => setDescription(event.target.value)} value={description} variant="outlined" fullWidth />
-                    <TextField label="Manufacture" onChange={(event) => setManufacture(event.target.value)} value={manufacture} fullWidth />
-                    <TextField label="Wine Picture Url" onChange={(event) => setWinePic(event.target.value)} value={winePic} name="winePic" fullWidth />
-                </div>
-            </PopUp>
-        </div>
+                <Button variant="contained" color="primary" className={"addButWine"} onClick={() => setOpenAdd(true)}>Edit Wine</Button>
+                <PopUp onSubmit={addWine} title={"Add Wine"} open={add} closePopup={() => setOpenAdd(false)} sendBtn={true} showBt={true}>
+                    <div className={"addWineForm"}>
+                        <TextField label="Wine Name" onChange={(event) => setWineName(event.target.value)} value={wineName} fullWidth required />
+                        <TextField label="Year" onChange={(event) => setYear(event.target.value)} value={year} fullWidth required />
+                        <FormControl fullWidth >
+                            <InputLabel htmlFor="age-native-simple">Kind</InputLabel>
+                            <Select native value={kind} onChange={e => setKind(e.target.value)}>
+                                <option aria-label="None" value="kind" />
+                                <option>Cabernet Sauvignon</option>
+                                <option>Syrah</option>
+                                <option>Pinot Noir</option>
+                                <option>Chardonnay</option>
+                                <option>Sauvignon Blanc</option>
+                            </Select>
+                        </FormControl>
+                        <FormControl fullWidth >
+                            <InputLabel htmlFor="age-native-simple">Color</InputLabel>
+                            <Select native value={color} onChange={e => setColor(e.target.value)}>
+                                <option aria-label="None" value="color" />
+                                <option>Red</option>
+                                <option>White</option>
+                                <option>Rose</option>
+                            </Select>
+                        </FormControl>
+                        <FormControl fullWidth >
+                            <InputLabel htmlFor="age-native-simple">Suits for</InputLabel>
+                            <Select native value={foodPairing} onChange={e => setFoodPairing(e.target.value)}>
+                                <option aria-label="None" value="foodPairing" />
+                                <option>Fish</option>
+                                <option>Sushi</option>
+                                <option>Steak</option>
+                                <option>Italian</option>
+                                <option>Desserts</option>
+                            </Select>
+                        </FormControl>
+                        <TextField label="Wine Price" onChange={(event) => setWinePrice(event.target.value)} value={winePrice} fullWidth />
+                        <TextField id="outlined-multiline-static" label="Description" multiline rows={4} onChange={(event) => setDescription(event.target.value)} value={description} variant="outlined" fullWidth />
+                        <TextField label="Manufacture" onChange={(event) => setManufacture(event.target.value)} value={manufacture} fullWidth />
+                        <TextField label="Wine Picture Url" onChange={(event) => setWinePic(event.target.value)} value={winePic} name="winePic" fullWidth />
+                    </div>
+                </PopUp>
+            </div>
         </div>
     );
 }

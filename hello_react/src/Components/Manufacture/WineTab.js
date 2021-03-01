@@ -90,7 +90,7 @@ export default function WineTab (props) {
             </div>
             <div>
               <div className={"butRow"}>
-                {isRenterExist()}
+                {isClientExist()}
                 <WineEdit idWine={props.item.id} idManufacture={props.idManufacture}/>
                 <WineDelete idWine={props.item.id} idManufacture={props.idManufacture}/>
               </div>

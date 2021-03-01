@@ -11,13 +11,13 @@ import UserRouter from "./userRouter";
 const ReactRouter = () => {
     return (
         <>
-            <Route exact path="/" component={Signin}/>
-            <UserRouter exact path="/HomePage" component={HomePage}/>
-            <UserRouter exact path="/ClientSearch" component={ClientSearch}/>
-            <UserRouter path="/SignInDeatails" component={SignInDeatails} />
-            <UserRouter path="/ManufacturePage" component={ManufacturePage} />
-            <UserRouter exact path ="/Client" component={Client} />
-            <UserRouter exact path = "PrivatePage" component={PrivatePage} />
+            {/* <Route exact path="/" component={Signin}/> */}
+            <Route exact path="/HomePage" component={HomePage}/>
+            <Route exact path="/ClientSearch" component={ClientSearch}/>
+            <Route path="/SignInDeatails" component={SignInDeatails} />
+            <Route path="/ManufacturePage" component={ManufacturePage} />
+            <Route exact path ="/Client" component={Client} />
+            <Route exact path = "PrivatePage" component={PrivatePage} />
         </>
     )
 }
